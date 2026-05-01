@@ -31,30 +31,34 @@ sap.ui.define(
                 this.getView().setModel(oModel);
             },
             onAddTask() {
-                const oModel = this.getView().getModel();
-                const aTasks = oModel.getProperty("/tasks");
+                const oTaskTitle = this.byId("titleInput");
+                const oTaskDescription = this.byId("descInput");
+                const oTaskPriority = this.byId("prioritySelect");
 
-                const sTaskTitle = this.byId("titleInput");
-                const sTaskDescription = this.byId("descInput");
-                const sTaskPriority = this.byId("prioritySelect");
+                const sTaskTitleValue = oTaskTitle.getValue();
+                const sTaskDescriptionValue = oTaskDescription.getValue();
+                const sTaskPriorityValue = oTaskPriority.getSelectedKey();
 
-                if (!sTaskTitle.getValue()) {
+                if (!sTaskTitleValue) {
                     MessageToast.show("Informe um título!");
                     return;
                 }
 
+                const oModel = this.getView().getModel();
+                const aTasks = oModel.getProperty("/tasks");
+
                 aTasks.push({
-                    title: sTaskTitle.getValue(),
-                    description: sTaskDescription.getValue(),
+                    title: sTaskTitleValue,
+                    description: sTaskDescriptionValue,
                     status: "NÃO INICIADA",
-                    priority: sTaskPriority.getSelectedKey()
+                    priority: sTaskPriorityValue
                 });
 
                 oModel.setProperty("/tasks", aTasks);
 
-                sTaskTitle.setValue("");
-                sTaskDescription.setValue("");
-                sTaskPriority.setSelectedKey("MEDIA");
+                sTaskTitleValue.setValue("");
+                sTaskDescriptionValue.setValue("");
+                sTaskPriorityValue.setSelectedKey("MEDIA");
 
                 MessageToast.show("Tarefa adicionada!");
             }
