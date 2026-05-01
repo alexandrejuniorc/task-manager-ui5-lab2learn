@@ -1,0 +1,20 @@
+{
+  "printWidth": 100,
+  "tabWidth": 4,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "overrides": [
+    {
+      "files": "*.xml",
+      "options": {
+        "printWidth": 120,
+        "singleAttributePerLine": true,
+        "xmlWhitespaceSensitivity": "ignore"
+      }
+    }
+  ]
+}

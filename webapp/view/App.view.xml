@@ -1,8 +1,11 @@
-<mvc:View xmlns:cards="sap.f.cards" controllerName="studies.taskmanager.controller.App"
+<mvc:View
+    xmlns:cards="sap.f.cards"
+    controllerName="studies.taskmanager.controller.App"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+>
     <App id="app">
-  <customData></customData>
+        <customData />
     </App>
 </mvc:View>

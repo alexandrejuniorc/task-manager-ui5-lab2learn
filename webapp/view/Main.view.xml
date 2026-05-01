@@ -70,25 +70,36 @@
                 <List
                     id="taskList"
                     items="{/tasks}"
-                />
-                <CustomListItem>
-                    <HBox
-                        justifyContent="SpaceBetween"
-                        width="100%"
-                        alignItems="Center"
-                        class="sapUiSmallPadding"
-                    />
+                >
+                    <items>
+                        <CustomListItem>
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                width="100%"
+                                alignItems="Center"
+                                class="sapUiSmallPadding"
+                            >
+                                <VBox>
+                                    <Title
+                                        text="{title}"
+                                        level="H5"
+                                    />
+                                    <Text text="{description}" />
 
-                    <VBox>
-                        <Title
-                            text="{title}"
-                            level="H5"
-                        />
-                        <Text text="{description}" />
-                        <ObjectStatus text="{status}" />
-                        <ObjectStatus text="{priority}" />
-                    </VBox>
-                </CustomListItem>
+                                    <ObjectStatus
+                                        text="{status}"
+                                        state="{= ${status} === 'FEITO' ? 'Success' : ${status} === 'EM PROGRESSO' ? 'Warning' : 'Error'}"
+                                    />
+                                </VBox>
+
+                                <ObjectStatus
+                                    text="{priority}"
+                                    state="{= ${priority} === 'ALTA' ? 'Error' : ${priority} === 'MEDIA' ? 'Warning' : 'Success'}"
+                                />
+                            </HBox>
+                        </CustomListItem>
+                    </items>
+                </List>
             </VBox>
         </content>
     </Page>
