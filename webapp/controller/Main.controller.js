@@ -32,6 +32,31 @@ sap.ui.define(
             },
             onAddTask() {
                 const oModel = this.getView().getModel();
+                const aTasks = oModel.getProperty("/tasks");
+
+                const sTaskTitle = this.byId("titleInput");
+                const sTaskDescription = this.byId("descInput");
+                const sTaskPriority = this.byId("prioritySelect");
+
+                if (!sTaskTitle.getValue()) {
+                    MessageToast.show("Informe um título!");
+                    return;
+                }
+
+                aTasks.push({
+                    title: sTaskTitle.getValue(),
+                    description: sTaskDescription.getValue(),
+                    status: "NÃO INICIADA",
+                    priority: sTaskPriority.getSelectedKey()
+                });
+
+                oModel.setProperty("/tasks", aTasks);
+
+                sTaskTitle.setValue("");
+                sTaskDescription.setValue("");
+                sTaskPriority.setSelectedKey("MEDIA");
+
+                MessageToast.show("Tarefa adicionada!");
             }
         });
     }
