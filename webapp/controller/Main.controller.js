@@ -56,9 +56,9 @@ sap.ui.define(
 
                 oModel.setProperty("/tasks", aTasks);
 
-                sTaskTitleValue.setValue("");
-                sTaskDescriptionValue.setValue("");
-                sTaskPriorityValue.setSelectedKey("MEDIA");
+                oTaskTitle.setValue("");
+                oTaskDescription.setValue("");
+                oTaskPriority.setSelectedKey("MEDIA");
 
                 MessageToast.show("Tarefa adicionada!");
             }
