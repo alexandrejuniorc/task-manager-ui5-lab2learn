@@ -61,7 +61,20 @@ sap.ui.define(
                 oTaskPriority.setSelectedKey("MEDIA");
 
                 MessageToast.show("Tarefa adicionada!");
-            }
+            },
+            onEditTask(oEvent) {
+                const oContext = oEvent.getSource().getBindingContext();
+                const oTask = oContext.getObject();
+
+                this.byId("editTitleInput").setValue(oTask.title);
+                this.byId("editDescriptionInput").setValue(oTask.description);
+                this.byId("editPriorityInput").setSelectedKey(oTask.priority);
+                this.byId("editStatusInput").setSelectedKey(oTask.status);
+
+                this.byId("editDialog").setBindingContext(oContext);
+                this.byId("editDialog").open();
+            },
+            onDeleteTask(oEvent) {}
         });
     }
 );

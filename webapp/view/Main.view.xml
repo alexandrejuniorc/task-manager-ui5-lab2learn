@@ -67,6 +67,70 @@
                     />
                 </HBox>
 
+                <!-- <Toolbar>
+                    <Title text="Filtros" />
+                </Toolbar>
+                <HBox
+                    class="sapUiSmallMarginBottom"
+                    wrap="Wrap"
+                    alignItems="Center"
+                >
+                    <Label
+                        text="Status:"
+                        class="sapUiTinyMarginEnd"
+                    />
+                    <Select>
+                        <items>
+                            <core:Item
+                                key="TODOS"
+                                text="Todos"
+                            />
+                            <core:Item
+                                key="NÃO INICIADA"
+                                text="Não Iniciada"
+                            />
+                            <core:Item
+                                key="EM PROGRESSO"
+                                text="Em Progresso"
+                            />
+                            <core:Item
+                                key="FEITO"
+                                text="Feito"
+                            />
+                        </items>
+                    </Select>
+
+                    <Label
+                        text="Prioridade:"
+                        class="sapUiTinyMarginEnd"
+                    />
+                    <Select>
+                        <items>
+                            <core:Item
+                                key="TODAS"
+                                text="Todas"
+                            />
+                            <core:Item
+                                key="{i18n>priorityLowKey}"
+                                text="{i18n>priorityLowKeyText}"
+                            />
+                            <core:Item
+                                key="{i18n>priorityMediumKey}"
+                                text="{i18n>priorityMediumKeyText}"
+                            />
+                            <core:Item
+                                key="{i18n>priorityHighKey}"
+                                text="{i18n>priorityHighKeyText}"
+                            />
+                        </items>
+                    </Select>
+
+                    <Button
+                        text="Limpar Filtros"
+                        press=".onClearFilters"
+                    />
+                </HBox> -->
+
                 <List
                     id="taskList"
                     items="{/tasks}"
@@ -97,10 +161,129 @@
                                     state="{= ${priority} === 'ALTA' ? 'Error' : ${priority} === 'MEDIA' ? 'Warning' : 'Success'}"
                                 />
                             </HBox>
+
+                            <HBox alignItems="Center">
+                                <Button
+                                    icon="sap-icon://edit"
+                                    type="Attention"
+                                    tooltip="Editar Tarefa"
+                                    press=".onEditTask"
+                                    class="sapUiTinyMarginEnd"
+                                />
+
+                                <Button
+                                    icon="sap-icon://delete"
+                                    type="Reject"
+                                    tooltip="Delete Tarefa"
+                                    press=".onDeleteTask"
+                                    class="sapUiTinyMarginEnd"
+                                />
+                            </HBox>
                         </CustomListItem>
                     </items>
                 </List>
             </VBox>
         </content>
     </Page>
+
+    <!-- <Dialog
+        id="editTaskDialog"
+        title="Editar Tarefas"
+        contentWidth="28rem"
+    >
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Label
+                    text="Título"
+                    required="true"
+                    class="sapUiTinyMarginBottom"
+                />
+                <Input
+                    id="editTitleInput"
+                    placeholder="Título da tarefa"
+                    width="100%"
+                    class="sapUiSmallMarginBottom"
+                />
+
+                <Label
+                    text="Descrição"
+                    required="true"
+                    class="sapUiTinyMarginBottom"
+                />
+                <Input
+                    id="editDescriptionInput"
+                    placeholder="Descrição da tarefa"
+                    width="100%"
+                    class="sapUiSmallMarginBottom"
+                />
+
+                <Label
+                    text="Prioridade"
+                    required="false"
+                    class="sapUiTinyMarginBottom"
+                />
+                <Select
+                    id="editPriorityInput"
+                    width="100%"
+                    class="sapUiSmallMarginBottom"
+                >
+                    <items>
+                        <core:Item
+                            key="{i18n>priorityLowKey}"
+                            text="{i18n>priorityLowKeyText}"
+                        />
+                        <core:Item
+                            key="{i18n>priorityMediumKey}"
+                            text="{i18n>priorityMediumKeyText}"
+                        />
+                        <core:Item
+                            key="{i18n>priorityHighKey}"
+                            text="{i18n>priorityHighKeyText}"
+                        />
+                    </items>
+                </Select>
+
+                <Label
+                    text="Status"
+                    required="false"
+                    class="sapUiTinyMarginBottom"
+                />
+                <Select
+                    id="editStatusInput"
+                    width="100%"
+                    class="sapUiSmallMarginBottom"
+                >
+                    <items>
+                        <core:Item
+                            key="NÃO INICIADA"
+                            text="Não Iniciada"
+                        />
+                        <core:Item
+                            key="EM PROGRESSO"
+                            text="Em Progresso"
+                        />
+                        <core:Item
+                            key="FEITO"
+                            text="Feito"
+                        />
+                    </items>
+                </Select>
+            </VBox>
+        </content>
+
+        <beginButton>
+            <Button
+                text="Salvar"
+                type="Emphasized"
+                press=".onSaveEditTask"
+            />
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Cancelar"
+                press=".onCancelEditTask"
+            />
+        </endButton>
+    </Dialog> -->
 </mvc:View>
