@@ -42,19 +42,19 @@
                         id="prioritySelect"
                         width="8.75rem"
                         class="sapUiTinyMarginEnd"
-                        selectedKey="{i18n>priorityLowKey}"
+                        selectedKey="BAIXA"
                     >
                         <items>
                             <core:Item
-                                key="{i18n>priorityLowKey}"
+                                key="BAIXA"
                                 text="{i18n>priorityLowKeyText}"
                             />
                             <core:Item
-                                key="{i18n>priorityMediumKey}"
+                                key="MEDIA"
                                 text="{i18n>priorityMediumKeyText}"
                             />
                             <core:Item
-                                key="{i18n>priorityHighKey}"
+                                key="ALTA"
                                 text="{i18n>priorityHighKeyText}"
                             />
                         </items>
@@ -67,9 +67,10 @@
                     />
                 </HBox>
 
-                <!-- <Toolbar>
+                <Toolbar>
                     <Title text="Filtros" />
                 </Toolbar>
+
                 <HBox
                     class="sapUiSmallMarginBottom"
                     wrap="Wrap"
@@ -111,15 +112,15 @@
                                 text="Todas"
                             />
                             <core:Item
-                                key="{i18n>priorityLowKey}"
+                                key="BAIXA"
                                 text="{i18n>priorityLowKeyText}"
                             />
                             <core:Item
-                                key="{i18n>priorityMediumKey}"
+                                key="MEDIA"
                                 text="{i18n>priorityMediumKeyText}"
                             />
                             <core:Item
-                                key="{i18n>priorityHighKey}"
+                                key="ALTA"
                                 text="{i18n>priorityHighKeyText}"
                             />
                         </items>
@@ -129,7 +130,7 @@
                         text="Limpar Filtros"
                         press=".onClearFilters"
                     />
-                </HBox> -->
+                </HBox>
 
                 <List
                     id="taskList"
@@ -174,7 +175,7 @@
                                 <Button
                                     icon="sap-icon://delete"
                                     type="Reject"
-                                    tooltip="Delete Tarefa"
+                                    tooltip="Deletar Tarefa"
                                     press=".onDeleteTask"
                                     class="sapUiTinyMarginEnd"
                                 />
@@ -186,9 +187,9 @@
         </content>
     </Page>
 
-    <!-- <Dialog
+    <Dialog
         id="editTaskDialog"
-        title="Editar Tarefas"
+        title="Editar Tarefa"
         contentWidth="28rem"
     >
         <content>
@@ -219,7 +220,6 @@
 
                 <Label
                     text="Prioridade"
-                    required="false"
                     class="sapUiTinyMarginBottom"
                 />
                 <Select
@@ -229,15 +229,15 @@
                 >
                     <items>
                         <core:Item
-                            key="{i18n>priorityLowKey}"
+                            key="BAIXA"
                             text="{i18n>priorityLowKeyText}"
                         />
                         <core:Item
-                            key="{i18n>priorityMediumKey}"
+                            key="MEDIA"
                             text="{i18n>priorityMediumKeyText}"
                         />
                         <core:Item
-                            key="{i18n>priorityHighKey}"
+                            key="ALTA"
                             text="{i18n>priorityHighKeyText}"
                         />
                     </items>
@@ -245,7 +245,6 @@
 
                 <Label
                     text="Status"
-                    required="false"
                     class="sapUiTinyMarginBottom"
                 />
                 <Select
@@ -285,5 +284,5 @@
                 press=".onCancelEditTask"
             />
         </endButton>
-    </Dialog> -->
+    </Dialog>
 </mvc:View>
